@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\whatsappclone\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
+            "outputFile": "C:\\whatsapp-clone\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Administrador\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73b73a0654b0c1bbb4994cd6c4e5dc98\\res\\values-ldltr-v21\\values-ldltr-v21.xml",

@@ -1,8 +1,25 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\whatsappclone\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw\\values-sw.xml",
+            "outputFile": "C:\\whatsapp-clone\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw\\values-sw.xml",
             "map": [
+                {
+                    "source": "C:\\Users\\Administrador\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-16.1.0.aar\\1928900e32f3eb84bdd45e289ee19fdb\\res\\values-sw\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "204",
+                        "endOffsets": "451"
+                    },
+                    "to": {
+                        "startLines": "27",
+                        "startColumns": "4",
+                        "startOffsets": "3035",
+                        "endColumns": "204",
+                        "endOffsets": "3235"
+                    }
+                },
                 {
                     "source": "C:\\Users\\Administrador\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73b73a0654b0c1bbb4994cd6c4e5dc98\\res\\values-sw\\values-sw.xml",
                     "from": {
@@ -18,23 +35,6 @@
                         "startOffsets": "105,208,306,414,504,609,726,808,891,973,1074,1183,1282,1389,1498,1603,1765,4612",
                         "endColumns": "102,97,107,89,104,116,81,82,81,100,108,98,106,108,104,161,96,81",
                         "endOffsets": "203,301,409,499,604,721,803,886,968,1069,1178,1277,1384,1493,1598,1760,1857,4689"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Administrador\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-16.0.1.aar\\0a8f85993040f875d78bb5fceed15ee9\\res\\values-sw\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "204",
-                        "endOffsets": "451"
-                    },
-                    "to": {
-                        "startLines": "27",
-                        "startColumns": "4",
-                        "startOffsets": "3035",
-                        "endColumns": "204",
-                        "endOffsets": "3235"
                     }
                 },
                 {

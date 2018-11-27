@@ -1,8 +1,25 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\whatsappclone\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-nl\\values-nl.xml",
+            "outputFile": "C:\\whatsapp-clone\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-nl\\values-nl.xml",
             "map": [
+                {
+                    "source": "C:\\Users\\Administrador\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-16.1.0.aar\\1928900e32f3eb84bdd45e289ee19fdb\\res\\values-nl\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "201",
+                        "endOffsets": "448"
+                    },
+                    "to": {
+                        "startLines": "27",
+                        "startColumns": "4",
+                        "startOffsets": "3075",
+                        "endColumns": "201",
+                        "endOffsets": "3272"
+                    }
+                },
                 {
                     "source": "C:\\Users\\Administrador\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\af965d98cdbc380f3d2662fb82e60b16\\res\\values-nl\\values-nl.xml",
                     "from": {
@@ -18,23 +35,6 @@
                         "startOffsets": "4765",
                         "endColumns": "100",
                         "endOffsets": "4861"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Administrador\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-16.0.1.aar\\0a8f85993040f875d78bb5fceed15ee9\\res\\values-nl\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "201",
-                        "endOffsets": "448"
-                    },
-                    "to": {
-                        "startLines": "27",
-                        "startColumns": "4",
-                        "startOffsets": "3075",
-                        "endColumns": "201",
-                        "endOffsets": "3272"
                     }
                 },
                 {

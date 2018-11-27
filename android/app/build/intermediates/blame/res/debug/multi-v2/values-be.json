@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\whatsappclone\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-be\\values-be.xml",
+            "outputFile": "C:\\whatsapp-clone\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-be\\values-be.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Administrador\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-16.0.1.aar\\0a8f85993040f875d78bb5fceed15ee9\\res\\values-be\\values.xml",
+                    "source": "C:\\Users\\Administrador\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-16.1.0.aar\\1928900e32f3eb84bdd45e289ee19fdb\\res\\values-be\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",

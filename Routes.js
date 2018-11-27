@@ -4,13 +4,15 @@ import FormLogin from './src/components/FormLogin';
 import FormCadastro from './src/components/FormCadastro';
 import BoasVindas from './src/components/BoasVindas'
 import {StyleSheet} from 'react-native';
+import Principal from './src/components/Principal';
 
 export default props=>(
     <Router>
-        <Scene key='wrap' >
-            <Scene key='formLogin'  component={FormLogin} title='WhatsApp Clone' navigationBarStyle={styles.navBar} titleStyle={styles.txtTitulo}/>
-            <Scene key='formCadastro'  component={FormCadastro} title='WhatsApp Clone' navigationBarStyle={styles.navBar} titleStyle={styles.txtTitulo}/>
-            <Scene key='boasVindas'  component={BoasVindas} title='WhatsApp Clone' navigationBarStyle={styles.navBar} titleStyle={styles.txtTitulo} />
+        <Scene key='wrap' navigationBarStyle={styles.navBar} titleStyle={styles.txtTitulo} >
+            <Scene key='formLogin'  component={FormLogin} title='WhatsApp Clone' />
+            <Scene key='formCadastro'  component={FormCadastro} title='WhatsApp Clone' />
+            <Scene key='boasVindas'  component={BoasVindas} title='WhatsApp Clone'  />
+            <Scene key='principal'  component={Principal} title='WhatsApp Clone' hideNavBar initial />
         </Scene>
     </Router>
 )

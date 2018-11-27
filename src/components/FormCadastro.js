@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, TextInput, Button, ImageBackground, StyleSheet} from 'react-native';
+import {View, Text, TextInput, Button, ImageBackground, StyleSheet, ActivityIndicator} from 'react-native';
 import { connect } from 'react-redux';
 import {modificaEmail, modificaSenha,modificaNome, cadastraUsuario} from '../actions/AutenticacaoActions';
 
@@ -9,6 +9,13 @@ class formCadastro extends Component{
         const {nome, email, senha} = this.props;
 
         this.props.cadastraUsuario({nome,email,senha});
+    }
+
+    renderBtnCadastrar(){
+        if(this.props.loading){
+            return(<ActivityIndicator size="large"/>)
+        }
+        return (<Button title="Cadastrar" color="#115E54" onPress={()=>{this._cadastraUsuario()}}></Button>)
     }
 
     render(){
@@ -24,7 +31,7 @@ class formCadastro extends Component{
                     </View>
 
                     <View style={{flex:1, width:'100%'}}>
-                        <Button title="Cadastrar" color="#115E54" onPress={()=>{this._cadastraUsuario()}}></Button>
+                        {this.renderBtnCadastrar()}
                     </View>
                 </View>
             </ImageBackground>
@@ -54,7 +61,7 @@ const mapStateToProps = state =>(
         email:state.AutenticacaoReducer.email,
         senha:state.AutenticacaoReducer.senha,
         erroCadastro:state.AutenticacaoReducer.erroCadastro,
-        
+        loading:state.AutenticacaoReducer.loading
     }
 )
 
