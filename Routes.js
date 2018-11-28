@@ -8,11 +8,11 @@ import Principal from './src/components/Principal';
 
 export default props=>(
     <Router>
-        <Scene key='wrap' navigationBarStyle={styles.navBar} titleStyle={styles.txtTitulo} >
-            <Scene key='formLogin'  component={FormLogin} title='WhatsApp Clone' />
-            <Scene key='formCadastro'  component={FormCadastro} title='WhatsApp Clone' />
-            <Scene key='boasVindas'  component={BoasVindas} title='WhatsApp Clone'  />
-            <Scene key='principal'  component={Principal} title='WhatsApp Clone' hideNavBar initial />
+        <Scene key='wrap' navigationBarStyle={styles.navBar} titleStyle={styles.txtTitulo} hideNavBar={true} >
+            <Scene key='formLogin'  component={FormLogin} />
+            <Scene key='formCadastro'  component={FormCadastro} />
+            <Scene key='boasVindas'  component={BoasVindas} />
+            <Scene key='principal'  component={Principal} title='WhatsApp Clone' hideNavBar={false} initial />
         </Scene>
     </Router>
 )
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     flex:1,
     fontSize:18,
     color:'#FFf',
-    textAlign:'center',
+    textAlign:'left',
   },
   navBar:{
     backgroundColor:'#115E54',

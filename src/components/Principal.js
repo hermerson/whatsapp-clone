@@ -7,10 +7,10 @@ import Contatos from './Contatos';
 
 
 const FirstRoute = () => (
-  <View style={[styles.scene, { backgroundColor: '#ff4081' }]} />
+  <View style={[styles.scene, { backgroundColor: '#fff' }]} />
 );
 const SecondRoute = () => (
-  <View style={[styles.scene, { backgroundColor: '#673ab7' }]} />
+  <View style={[styles.scene, { backgroundColor: '#fff' }]} />
 );
 
 export default class Principal extends React.Component {
@@ -25,7 +25,7 @@ export default class Principal extends React.Component {
 
   _renderTabBar = props => (
           
-    <TabBar
+    <TabBar 
       {...props}
       // scrollEnabled
       indicatorStyle={styles.indicator}
@@ -63,13 +63,14 @@ const styles = StyleSheet.create({
     height: 2,
   }, 
   tabbar: {
-    backgroundColor: "#115E54",            
+    backgroundColor: "#115E54",
+    elevation:0            
   },
   tab: {
     flex: 1,
     justifyContent: 'center',
-    borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: '#000',
+    elevation:0
   },
   label: {
     fontSize: 20,
