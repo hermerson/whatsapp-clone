@@ -14,7 +14,7 @@ export default props=>(
             <Scene key='formCadastro'  component={FormCadastro} />
             <Scene key='boasVindas'  component={BoasVindas} />
             <Scene key='addContato' component={AdicionarContato} title="Adicionar Contato" hideNavBar={false} />
-            <Scene key='principal'  component={Principal} title='WhatsApp Clone' hideNavBar={false} initial />
+            <Scene key='principal'  component={Principal} title='WhatsApp Clone' hideNavBar={false} />
         </Scene>
     </Router>
 )

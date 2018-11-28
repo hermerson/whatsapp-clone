@@ -1,10 +1,16 @@
 import React from 'react';
-import {View, TextInput, Button, StyleSheet, Text} from 'react-native';
+import {View, TextInput, Button, StyleSheet, Text, ActivityIndicator} from 'react-native';
 import {connect} from 'react-redux';
 import {modificaAddContatoEmail,adicionaContato} from '../actions/AppActions'
 
 class AdicionarContato extends React.Component{
 
+    renderBtnAddContato(){
+        if(this.props.loading){
+            return(<ActivityIndicator size="large"/>)
+        }
+        return (<Button title="Adicionar" color="#115E54" onPress={()=>this.props.adicionaContato(this.props.add_contato_email)}></Button>)
+    }
 
     render(){
         return(
@@ -15,7 +21,7 @@ class AdicionarContato extends React.Component{
                 </View>
                     
                 <View style={{flex:1}}>
-                    <Button title="Adicionar" color="#115E54" onPress={()=>this.props.adicionaContato(this.props.add_contato_email)}></Button>
+                    {this.renderBtnAddContato()}
                 </View>
 
                 
@@ -43,6 +49,7 @@ const mapStateToProps = state =>(
     {
         add_contato_email:state.AppReducer.add_contato_email,
         erro_adicionar_contato:state.AppReducer.erro_adicionar_contato,
+        loading:state.AppReducer.loading
 
     }
 )

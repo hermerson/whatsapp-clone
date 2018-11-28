@@ -2,8 +2,14 @@ import React from 'react';
 import {View} from 'react-native';
 import ActionButton from 'react-native-action-button';
 import {Actions} from 'react-native-router-flux';
+import {contatosUsuarioFetch} from '../actions/AppActions'
+import {connect} from 'react-redux';
 
-export default class Contatos extends React.Component{
+class Contatos extends React.Component{
+
+    componentWillMount(){
+        this.props.contatosUsuarioFetch();
+    }
 
     render(){
         return(
@@ -23,5 +29,7 @@ export default class Contatos extends React.Component{
         )
     }
 }
+
+export default connect(null,{contatosUsuarioFetch})(Contatos);
 
 
