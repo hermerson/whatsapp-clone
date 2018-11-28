@@ -5,13 +5,15 @@ import FormCadastro from './src/components/FormCadastro';
 import BoasVindas from './src/components/BoasVindas'
 import {StyleSheet} from 'react-native';
 import Principal from './src/components/Principal';
+import AdicionarContato from './src/components/AdicionarContato';
 
 export default props=>(
     <Router>
-        <Scene key='wrap' navigationBarStyle={styles.navBar} titleStyle={styles.txtTitulo} hideNavBar={true} >
+        <Scene key='wrap' navigationBarStyle={styles.navBar} titleStyle={styles.txtTitulo} hideBackImage={true} hideNavBar={true} >
             <Scene key='formLogin'  component={FormLogin} />
             <Scene key='formCadastro'  component={FormCadastro} />
             <Scene key='boasVindas'  component={BoasVindas} />
+            <Scene key='addContato' component={AdicionarContato} title="Adicionar Contato" hideNavBar={false} />
             <Scene key='principal'  component={Principal} title='WhatsApp Clone' hideNavBar={false} initial />
         </Scene>
     </Router>

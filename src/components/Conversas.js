@@ -1,6 +1,13 @@
 import React from 'react';
 import {View} from 'react-native';
 
-export default props =>(
-    <View></View>
-)
+export default class Conversas extends React.Component{
+
+    render(){
+        return(
+            <View>
+                
+            </View>
+        )
+    }
+}

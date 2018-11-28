@@ -7,10 +7,10 @@ import Contatos from './Contatos';
 
 
 const FirstRoute = () => (
-  <View style={[styles.scene, { backgroundColor: '#fff' }]} />
+  <Conversas/>
 );
 const SecondRoute = () => (
-  <View style={[styles.scene, { backgroundColor: '#fff' }]} />
+  <Contatos/>
 );
 
 export default class Principal extends React.Component {
@@ -40,6 +40,7 @@ export default class Principal extends React.Component {
   render() {
     return (
       <TabView
+
         renderTabBar={this._renderTabBar}
         navigationState={this.state}
         renderScene={SceneMap({
