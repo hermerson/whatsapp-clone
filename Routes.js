@@ -6,6 +6,7 @@ import BoasVindas from './src/components/BoasVindas'
 import {StyleSheet} from 'react-native';
 import Principal from './src/components/Principal';
 import AdicionarContato from './src/components/AdicionarContato';
+import Conversa from './src/components/Conversa';
 
 export default props=>(
     <Router>
@@ -14,7 +15,8 @@ export default props=>(
             <Scene key='formCadastro'  component={FormCadastro} />
             <Scene key='boasVindas'  component={BoasVindas} />
             <Scene key='addContato' component={AdicionarContato} title="Adicionar Contato" hideNavBar={false} />
-            <Scene key='principal'  component={Principal} title='WhatsApp Clone' hideNavBar={false} />
+            <Scene key='conversa' component={Conversa} title="" hideNavBar={false} />
+            <Scene key='principal'  component={Principal} title='WhatsApp Clone' hideNavBar={false}  initial/>
         </Scene>
     </Router>
 )

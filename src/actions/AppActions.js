@@ -1,4 +1,4 @@
-import {MODIFICA_ADD_CONTATO_EMAIL, ADICIONA_CONTATO_SUCESSO, ADICIONA_CONTATO_ERRO, LOADING_ADD_CONTATO, LISTA_CONTATO_USUARIO} from './types';
+import {MODIFICA_ADD_CONTATO_EMAIL, ADICIONA_CONTATO_SUCESSO, ADICIONA_CONTATO_ERRO, LOADING_ADD_CONTATO, LISTA_CONTATO_USUARIO, MODIFICA_MENSAGEM, ENVIA_MENSAGEM} from './types';
 import b64 from 'base-64';
 import firebase from 'react-native-firebase';
 import _ from 'lodash';
@@ -48,10 +48,26 @@ export const contatosUsuarioFetch=()=>{
 
     return (dispatch)=>{
         let emailUsuarioB64 = b64.encode(currentUser.email);
-        firebase.database().ref(`/usuarios_contatos/${emailUsuarioB64}`).on('value', snapshot=>{
-            console.log(snapshot.val());
+        firebase.database().ref(`/usuario_contatos/${emailUsuarioB64}`).on('value', snapshot=>{
+            dispatch({type:LISTA_CONTATO_USUARIO,payload:snapshot.val()});
            
         })
     }
 
+}
+
+export const modificaMensagem = (texto)=>{
+    return{
+        type:MODIFICA_MENSAGEM,
+        payload:texto
+    }
+}
+
+export const enviaMensagem = (mensagem, contatoNome, contatoEmail)=>{
+    console.log(mensagem);
+    console.log(contatoNome);
+    console.log(contatoEmail);
+    return{
+        type:ENVIA_MENSAGEM,
+    }
 }
