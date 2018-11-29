@@ -1,6 +1,6 @@
 
 import React, {Component} from 'react';
-
+import reactotron from './ReactotronConfig';
 import Routes from './Routes';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
@@ -10,7 +10,7 @@ import ReduxThunk from 'redux-thunk';
 export default class App extends Component{
   render() {
     return (
-      <Provider store={createStore(reducers, {}, applyMiddleware(ReduxThunk))}>
+      <Provider store={reactotron.createStore(reducers, {}, applyMiddleware(ReduxThunk))}>
         <Routes/>
       </Provider>
         
