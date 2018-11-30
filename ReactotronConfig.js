@@ -3,9 +3,9 @@ import { reactotronRedux } from 'reactotron-redux';
 
 const reactotron = Reactotron
   .configure({ 
-      host:'100.73.42.65',
-      name: 'SOS App', 
-      port: 9090 
+      host:'150.165.242.159',
+      name: 'whatsapp-clone', 
+      port: 9091 
       }) // controls connection & communication settings
   .useReactNative() // add all built-in react native plugins
   .use(reactotronRedux())

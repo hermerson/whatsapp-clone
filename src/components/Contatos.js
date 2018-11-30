@@ -64,7 +64,7 @@ class Contatos extends React.Component{
 const mapStateToProps = state =>{
     const contatos = _.map(state.ListaContatosReducer, (val,uid)=>{
         return{...val, uid}
-    })
+    }).splice(0).reverse();
     return{contatos}
 }
 

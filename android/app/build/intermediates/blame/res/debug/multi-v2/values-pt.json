@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\RN\\whatsapp-clone\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pt\\values-pt.xml",
+            "outputFile": "C:\\whatsapp-clone\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pt\\values-pt.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\hermerson\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\9080bb4266c67505db47bcd24bfea416\\res\\values-pt\\values-pt.xml",
+                    "source": "C:\\Users\\Administrador\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\af965d98cdbc380f3d2662fb82e60b16\\res\\values-pt\\values-pt.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\hermerson\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\a0a037f32f4d2c3e020e35c4095f8cf8\\res\\values-pt\\values-pt.xml",
+                    "source": "C:\\Users\\Administrador\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73b73a0654b0c1bbb4994cd6c4e5dc98\\res\\values-pt\\values-pt.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

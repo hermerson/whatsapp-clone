@@ -1,4 +1,4 @@
-import {MODIFICA_ADD_CONTATO_EMAIL, ADICIONA_CONTATO_SUCESSO, ADICIONA_CONTATO_ERRO, LOADING_ADD_CONTATO, MODIFICA_MENSAGEM} from '../actions/types';
+import {MODIFICA_ADD_CONTATO_EMAIL, ADICIONA_CONTATO_SUCESSO, ADICIONA_CONTATO_ERRO, LOADING_ADD_CONTATO, MODIFICA_MENSAGEM, ENVIA_MENSAGEM} from '../actions/types';
 
 const INITIAL_STATE={
     add_contato_email:'',
@@ -8,7 +8,7 @@ const INITIAL_STATE={
 }
 
 export default (state = INITIAL_STATE, action) =>{
-    console.log(action);
+
     switch(action.type){
         case MODIFICA_ADD_CONTATO_EMAIL:
             return{...state,add_contato_email:action.payload, erro_adicionar_contato:""}
@@ -25,6 +25,10 @@ export default (state = INITIAL_STATE, action) =>{
         case MODIFICA_MENSAGEM:
             return{...state, mensagem:action.payload}
         
+        case ENVIA_MENSAGEM:
+            return{...state, mensagem:""}
+
+
         default:
             return state;
 
