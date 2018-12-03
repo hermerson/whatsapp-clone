@@ -11,10 +11,14 @@ class Conversa extends React.Component{
     componentWillMount(){
         this.props.conversaUsuarioFetch(this.props.contatoEmail);
         this.criaFonteDeDados(this.props.conversa);
+       
+        
     }
+
 
     componentWillReceiveProps(nextProps){
         this.criaFonteDeDados(nextProps.conversa);
+
     }
 
     criaFonteDeDados(conversa){
@@ -50,6 +54,7 @@ class Conversa extends React.Component{
  
 
     render(){
+
         return(
             <View style={{flex:1, backgroundColor:'#eee4dc', padding:10}}>
                <View style={{flex:1, paddingBottom:20}}>
@@ -57,6 +62,11 @@ class Conversa extends React.Component{
                         enableEmptySections
                         dataSource={this.dataSource}
                         renderRow={this.renderRow}
+                        ref={listView=>this.listView=listView}
+                        onContentSizeChange={ () => {        
+                            this.listView.scrollToEnd( { animated: false } )
+                        } } 
+                        
                     />
                </View>
 

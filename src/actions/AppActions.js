@@ -79,10 +79,11 @@ export const enviaMensagem = (mensagem, contatoNome, contatoEmail)=>{
         const contatoEmailB64 = b64.encode(contatoEmail);
         dispatch({type:ENVIA_MENSAGEM,})
         firebase.database().ref(`/mensagens/${usuarioEmailB64}/${contatoEmailB64}`)
-        .push({mensagem, tipo:"e", timestamp:`${data.getDate()}${data.getMonth()}${data.getFullYear()}${data.getHours()}${data.getMinutes()}${data.getSeconds()}${data.getMilliseconds()}`})
-        .then(()=>{
+        .push({mensagem, tipo:"e", timestamp:data.getTime()})
+        .then((res)=>{
+            console.log(res);
             firebase.database().ref(`/mensagens/${contatoEmailB64}/${usuarioEmailB64}`)
-            .push({mensagem, tipo:"r", timestamp:`${data.getDate()}${data.getMonth()}${data.getFullYear()}${data.getHours()}${data.getMinutes()}${data.getSeconds()}${data.getMilliseconds()}`})
+            .push({mensagem, tipo:"r", timestamp:data.getTime()})
             .then(()=>{
                 
             })
@@ -107,18 +108,18 @@ export const enviaMensagem = (mensagem, contatoNome, contatoEmail)=>{
     }
 }
 
-export const conversaUsuarioFetch = contatoEmail => {
+export const conversaUsuarioFetch = (contatoEmail) => {
     
     return (dispatch)=>{
 
         const {currentUser} = firebase.auth();
         const usuarioEmailB64 = b64.encode(currentUser.email);
         const contatoEmailB64 = b64.encode(contatoEmail);
-
+      
 
         firebase.database().ref(`/mensagens/${usuarioEmailB64}/${contatoEmailB64}`).on('value', snapshot=>{
             const mensagens = _.orderBy(snapshot.val(), ['timestamp']);
-            console.log(mensagens);
+
             
             dispatch({type:LISTA_CONVERSA_USUARIO, payload:mensagens});
         })
