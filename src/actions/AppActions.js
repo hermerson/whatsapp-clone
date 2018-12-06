@@ -91,7 +91,7 @@ export const enviaMensagem = (mensagem, contatoNome, contatoEmail)=>{
         })
         .then(()=>{ //ARMAZENAR CABEÇALHO USUARIO
             firebase.database().ref(`/usuario_conversas/${usuarioEmailB64}/${contatoEmailB64}`)
-            .set({contatoNome, contatoEmail, ultimaMensagem:mensagem});
+            .set({contatoNome, contatoEmail, ultimaMensagem:mensagem, tipo:"e"});
         })
         .then(()=>{ //ARMAZENAR CABEÇALHO CONTATO
 
@@ -100,7 +100,7 @@ export const enviaMensagem = (mensagem, contatoNome, contatoEmail)=>{
                 .then(snapshot=>{
                     const dadosUsuario=_.first(_.values(snapshot.val()));
                     firebase.database().ref(`/usuario_conversas/${contatoEmailB64}/${usuarioEmailB64}`)
-                    .set({nome:dadosUsuario.nome, contatoEmail})
+                    .set({nome:dadosUsuario.nome, contatoEmail, ultimaMensagem:mensagem, tipo:"r"})
 
             })
 
