@@ -5,7 +5,8 @@ import {MODIFICA_ADD_CONTATO_EMAIL,
         LISTA_CONTATO_USUARIO,
         MODIFICA_MENSAGEM, 
         ENVIA_MENSAGEM,
-        LISTA_CONVERSA_USUARIO} from './types';
+        LISTA_CONVERSA_USUARIO,
+        LISTA_CONVERSAS_USUARIO} from './types';
 import b64 from 'base-64';
 import firebase from 'react-native-firebase';
 import _ from 'lodash';
@@ -90,7 +91,7 @@ export const enviaMensagem = (mensagem, contatoNome, contatoEmail)=>{
         })
         .then(()=>{ //ARMAZENAR CABEÇALHO USUARIO
             firebase.database().ref(`/usuario_conversas/${usuarioEmailB64}/${contatoEmailB64}`)
-            .set({contatoNome, contatoEmail})
+            .set({contatoNome, contatoEmail, ultimaMensagem:mensagem});
         })
         .then(()=>{ //ARMAZENAR CABEÇALHO CONTATO
 
@@ -124,4 +125,18 @@ export const conversaUsuarioFetch = (contatoEmail) => {
             dispatch({type:LISTA_CONVERSA_USUARIO, payload:mensagens});
         })
     }
+}
+
+
+export const conversasUsuarioFetch=()=>{
+    const {currentUser} = firebase.auth();
+
+    return (dispatch)=>{
+        let emailUsuarioB64 = b64.encode(currentUser.email);
+        firebase.database().ref(`/usuario_conversas/${emailUsuarioB64}`).on('value', snapshot=>{
+            dispatch({type:LISTA_CONVERSAS_USUARIO, payload:snapshot.val()});
+           
+        })
+    }
+
 }

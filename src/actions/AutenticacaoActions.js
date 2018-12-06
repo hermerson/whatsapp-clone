@@ -37,19 +37,26 @@ export const  cadastraUsuario = ({nome,email,senha})=>{
 
         dispatch({type:LOADING});
 
-        firebase.auth().createUserWithEmailAndPassword(email,senha)
-        .then(user=>{
-            let emailB64 = b64.encode(email);
-            firebase.database().ref('/contatos/'+emailB64).push({nome}).then(values=>{
-                dispatch({ type:CADASTRO_USUARIO_SUCESSO});
-                Actions.boasVindas();
-            }).catch(erro=>{
-                console.log(erro);
-            });
+        if(nome==="" || email === "" || senha === ""){
+            console.log('erro login')
+            dispatch({type:CADASTRO_USUARIO_ERRO, payload:"Nome, Login e Senha obrigatorios"});
+        }else{
+            firebase.auth().createUserWithEmailAndPassword(email,senha)
+                .then(user=>{
+                    let emailB64 = b64.encode(email);
+                    firebase.database().ref('/contatos/'+emailB64).push({nome}).then(values=>{
+                        dispatch({ type:CADASTRO_USUARIO_SUCESSO});
+                        Actions.boasVindas();
+                    }).catch(erro=>{
+                        console.log(erro);
+                });
             
         }).catch(erro=>{
             dispatch({type:CADASTRO_USUARIO_ERRO, payload:erro.message});
         })
+        }
+
+        
    }
 
    
@@ -64,14 +71,18 @@ export const autenticarUsuario = (email,senha) =>{
     return dispatch =>{
 
         dispatch({type:LOADING});
-
-        firebase.auth().signInWithEmailAndPassword(email,senha)
-        .then(user=>{
-            dispatch({ type:LOGIN_USUARIO_SUCESSO});
-            Actions.principal();
-        }).catch(erro=>{
-            dispatch({type:LOGIN_USUARIO_ERRO, payload:erro.message});
-        });
+        if(email === "" || senha === ""){
+            console.log('erro login')
+            dispatch({type:LOGIN_USUARIO_ERRO, payload:"Login e senha obrigatorios"});
+        }else{
+            firebase.auth().signInWithEmailAndPassword(email,senha)
+            .then(user=>{
+                dispatch({ type:LOGIN_USUARIO_SUCESSO});
+                Actions.principal();
+            }).catch(erro=>{
+                dispatch({type:LOGIN_USUARIO_ERRO, payload:erro.message});
+            });
+        }
     }
    
    
