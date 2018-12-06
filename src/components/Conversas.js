@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, ListView, TouchableOpacity, Text, Image} from 'react-native';
+import {View, ListView, TouchableOpacity, Text} from 'react-native';
 import { conversasUsuarioFetch} from '../actions/AppActions';
 import {connect} from 'react-redux';
 import _ from 'lodash';
@@ -10,30 +10,14 @@ class Conversas extends React.Component{
 
 
     renderRow(conversas){
-        console.log(conversas);
         return(
-        <TouchableOpacity style={{}} onPress={()=>{
-                if(conversas.tipo=="e"){
-                    Actions.conversa({title:conversas.contatoNome,contatoNome:conversas.contatoNome, contatoEmail:conversas.contatoEmail});
-                }else{
-                    Actions.conversa({title:conversas.nome,contatoNome:conversas.nome, contatoEmail:conversas.contatoEmail});
-                }
-            }}> 
-            <View style={{flex:1, paddingLeft:10, paddingTop:5, paddingBottom:10,  flexDirection:'row', borderBottomWidth:1, borderColor:'#CCC'}}>
-                <View>
-                    <Image source={require('../assets/generic-user.png')} style={{width:50, height:50}}/>
-                </View>
-                
-                <View style={{paddingLeft:10, paddingTop:10,}}>
-                    <Text style={{fontSize:20}}>{conversas.tipo=="r"?conversas.nome:conversas.contatoNome}</Text>
-
-                    <View style={{flexDirection:'row', paddingLeft:5}}>
-                        {conversas.tipo=="e"?<Image source={require('../assets/check.png')} style={{width:20, height:20}}/>:null}
-                        <Text style={{fontSize:15, paddingLeft:3}}>{conversas.ultimaMensagem}</Text>
-                    </View>
-
-                </View>
-            </View>
+         <TouchableOpacity onPress={()=>{
+             Actions.conversa({title:conversas.contatoNome,contatoNome:conversas.contatoNome, contatoEmail:conversas.contatoEmail});
+         }}>
+             <View style={{flex:1, padding:20, borderBottomWidth:1, borderColor:'#CCC'}}>
+                <Text style={{fontSize:25}}>{conversas.contatoNome}</Text>
+                <Text style={{fontSize:18, paddingLeft:15}}>{conversas.ultimaMensagem}</Text>
+             </View>
          </TouchableOpacity>
          
         )
