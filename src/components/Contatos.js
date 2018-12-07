@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, ListView, Text, TouchableOpacity} from 'react-native';
+import {View, ListView, Text, TouchableOpacity, Image} from 'react-native';
 import ActionButton from 'react-native-action-button';
 import {Actions} from 'react-native-router-flux';
 import {contatosUsuarioFetch} from '../actions/AppActions'
@@ -13,10 +13,17 @@ class Contatos extends React.Component{
         <TouchableOpacity onPress={()=>{
             Actions.conversa({title:contato.nome,contatoNome:contato.nome, contatoEmail:contato.email});
         }}>
-            <View style={{flex:1, padding:20, borderBottomWidth:1, borderColor:'#CCC'}}>
-                <Text style={{fontSize:25}}>{contato.nome}</Text>
-                <Text style={{fontSize:18}}>{contato.email}</Text>
-            </View>
+
+            <View style={{flex:1,flexDirection:'row', padding:10, borderBottomWidth:1, borderColor:'#CCC'}}>
+                <View >
+                    <Image source={require('../assets/generic-user.png')} style={{width:50, height:50}}/>
+                </View>
+                
+                <View style={{flexDirection:'column', paddingLeft:10}}>
+                    <Text style={{fontSize:20, fontWeight:'500'}}>{contato.nome}</Text>
+                    <Text style={{fontSize:15}}>{contato.email}</Text>
+                </View>
+             </View>
         </TouchableOpacity>
         
        )
@@ -62,7 +69,7 @@ class Contatos extends React.Component{
 }
 
 const mapStateToProps = state =>{
-    const contatos = _.map(state.ListaContatosReducer, (val,uid)=>{
+    const contatos = _.map(state.ListaContatosReducer.contatos, (val,uid)=>{
         return{...val, uid}
     }).splice(0).reverse();
     return{contatos}

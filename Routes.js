@@ -15,13 +15,13 @@ export default props=>(
             <Scene key='formCadastro'  component={FormCadastro} />
             <Scene key='boasVindas'  component={BoasVindas} />
             <Scene key='addContato' component={AdicionarContato} title="Adicionar Contato" hideNavBar={false} />
-            <Scene key='conversa' component={Conversa} title="" hideNavBar={false} />
-            <Scene key='principal'  component={Principal} title='WhatsApp Clone' hideNavBar={false} />
+            <Scene key='conversa' component={Conversa}  hideNavBar={false} />
+            <Scene key='principal'  component={Principal}  title='WhatsApp Clone' hideNavBar={false} initial />
         </Scene>
     </Router>
 )
 
-
+ 
 const styles = StyleSheet.create({
     content:{
       flex:1,

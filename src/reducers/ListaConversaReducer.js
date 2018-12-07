@@ -1,7 +1,7 @@
 import {LISTA_CONVERSA_USUARIO} from '../actions/types';
 
 const INITIAL_STATE={
-
+    conversa:{}
 }
 
 export default (state = INITIAL_STATE, action) =>{
@@ -9,7 +9,7 @@ export default (state = INITIAL_STATE, action) =>{
     switch(action.type){
         
         case LISTA_CONVERSA_USUARIO:
-            return action.payload;
+            return {...state, conversa:action.payload}
         default:
             return state;
 

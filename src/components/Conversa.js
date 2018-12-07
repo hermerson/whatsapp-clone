@@ -9,6 +9,7 @@ import _ from 'lodash';
 class Conversa extends React.Component{
 
     componentWillMount(){
+
         this.props.conversaUsuarioFetch(this.props.contatoEmail);
         this.criaFonteDeDados(this.props.conversa);
        
@@ -86,7 +87,7 @@ class Conversa extends React.Component{
 
 mapStateToProps = (state) =>{
 
-    const conversa = _.map(state.ListaConversaReducer, (val, uid)=>{
+    const conversa = _.map(state.ListaConversaReducer.conversa, (val, uid)=>{
         return {...val, uid};
     })
     //console.log(conversa);

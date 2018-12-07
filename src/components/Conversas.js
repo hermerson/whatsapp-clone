@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, ListView, TouchableOpacity, Text} from 'react-native';
+import {View, ListView, TouchableOpacity, Text, Image} from 'react-native';
 import { conversasUsuarioFetch} from '../actions/AppActions';
 import {connect} from 'react-redux';
 import _ from 'lodash';
@@ -10,13 +10,23 @@ class Conversas extends React.Component{
 
 
     renderRow(conversas){
+        console.log(conversas);
         return(
          <TouchableOpacity onPress={()=>{
              Actions.conversa({title:conversas.contatoNome,contatoNome:conversas.contatoNome, contatoEmail:conversas.contatoEmail});
          }}>
-             <View style={{flex:1, padding:20, borderBottomWidth:1, borderColor:'#CCC'}}>
-                <Text style={{fontSize:25}}>{conversas.contatoNome}</Text>
-                <Text style={{fontSize:18, paddingLeft:15}}>{conversas.ultimaMensagem}</Text>
+             <View style={{flex:1,flexDirection:'row', padding:10, borderBottomWidth:1, borderColor:'#CCC'}}>
+                <View >
+                    <Image source={require('../assets/generic-user.png')} style={{width:50, height:50}}/>
+                </View>
+                
+                <View style={{flexDirection:'column', paddingLeft:10}}>
+                    <Text style={{fontSize:20, fontWeight:'500'}}>{conversas.contatoNome}</Text>
+                    <View style={{flexDirection:'row', paddingLeft:3}}>
+                        {conversas.tipo=="e"?<Image source={require('../assets/check.png')} style={{width:20, height:20, paddingTop:25}}/>:null}
+                        <Text style={{fontSize:15}}>{conversas.ultimaMensagem}</Text>
+                    </View>
+                </View>
              </View>
          </TouchableOpacity>
          
@@ -56,10 +66,9 @@ class Conversas extends React.Component{
 
 
 const mapStateToProps = state =>{
-    const conversas = _.map(state.ListaConversasReducer, (val,uid)=>{
+    const conversas = _.map(state.ListaConversasReducer.conversas, (val,uid)=>{
         return{...val, uid}
     }).splice(0).reverse();
-    console.log(conversas)
     return{conversas}
 }
 
