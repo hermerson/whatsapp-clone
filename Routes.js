@@ -7,8 +7,12 @@ import {StyleSheet} from 'react-native';
 import Principal from './src/components/Principal';
 import AdicionarContato from './src/components/AdicionarContato';
 import Conversa from './src/components/Conversa';
+import {connect} from 'react-redux';
 
-export default props=>(
+const Routes = props=>{
+    console.log(props)
+
+return(
     <Router>
         <Scene key='wrap' navigationBarStyle={styles.navBar} titleStyle={styles.txtTitulo} hideBackImage={true} hideNavBar={true} >
             <Scene key='formLogin'  component={FormLogin} />
@@ -16,12 +20,12 @@ export default props=>(
             <Scene key='boasVindas'  component={BoasVindas} />
             <Scene key='addContato' component={AdicionarContato} title="Adicionar Contato" hideNavBar={false} />
             <Scene key='conversa' component={Conversa}  hideNavBar={false} />
-            <Scene key='principal'  component={Principal}  title='WhatsApp Clone' hideNavBar={false} initial />
+            <Scene key='principal'  component={Principal}  title='WhatsApp Clone' hideNavBar={false} initial={props.autenticado} />
         </Scene>
     </Router>
 )
 
- 
+}
 const styles = StyleSheet.create({
     content:{
       flex:1,
@@ -37,3 +41,8 @@ const styles = StyleSheet.create({
   },
   });
   
+const mapStateToProps=(state)=>({
+    autenticado:state.AutenticacaoReducer.autenticado,
+});
+
+export default connect(mapStateToProps, null)(Routes);

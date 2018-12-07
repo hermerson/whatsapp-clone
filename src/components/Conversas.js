@@ -56,8 +56,6 @@ class Conversas extends React.Component{
                         dataSource={this.fonteDeDados}
                         renderRow={this.renderRow}
                     />
-             
-                
             </View>
         )
     }

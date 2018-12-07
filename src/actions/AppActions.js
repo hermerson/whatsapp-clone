@@ -117,8 +117,8 @@ export const conversaUsuarioFetch = (contatoEmail) => {
         const usuarioEmailB64 = b64.encode(currentUser.email);
         const contatoEmailB64 = b64.encode(contatoEmail);
 
-        firebase.database().ref(`/mensagens/${usuarioEmailB64}/${contatoEmailB64}`).on('value', snapshot=>{
-            const mensagens = _.orderBy(snapshot.val(), ['timestamp']);
+        firebase.database().ref(`/mensagens/${usuarioEmailB64}/${contatoEmailB64}`).orderByKey().on('value', snapshot=>{
+            const mensagens = snapshot.val()
 
             
             dispatch({type:LISTA_CONVERSA_USUARIO, payload:mensagens});
