@@ -78,7 +78,7 @@ export const autenticarUsuario = (email,senha) =>{
             firebase.auth().signInWithEmailAndPassword(email,senha)
             .then(user=>{
                 dispatch({ type:LOGIN_USUARIO_SUCESSO});
-                Actions.principal();
+                Actions.pop();
             }).catch(erro=>{
                 dispatch({type:LOGIN_USUARIO_ERRO, payload:erro.message});
             });

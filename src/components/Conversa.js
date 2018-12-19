@@ -30,7 +30,12 @@ class Conversa extends React.Component{
     }
     _enviaMensagem(){
         const {mensagem, contatoNome, contatoEmail} = this.props;
-        this.props.enviaMensagem(mensagem, contatoNome, contatoEmail);
+        if(!mensagem==""){
+            this.props.enviaMensagem(mensagem, contatoNome, contatoEmail);
+        }else{
+            console.log(mensagem)
+        }
+        
     }
 
     renderRow(texto){
@@ -73,7 +78,11 @@ class Conversa extends React.Component{
 
 
                <View style={{flexDirection:'row', height:60}}>
-                    <TextInput value={this.props.mensagem} onChangeText={texto=>{this.props.modificaMensagem(texto)}} style={{flex:4, backgroundColor:'#fff', fontSize:18, borderRadius:60}}/>
+                    <TextInput value={this.props.mensagem} onChangeText={texto=>{this.props.modificaMensagem(texto)}} onTouchStart={()=>{
+                        setTimeout(()=>{
+                            this.listView.scrollToEnd( { animated: false } )
+                        }, 250);
+                    }} style={{flex:4, backgroundColor:'#fff', fontSize:18, borderRadius:60}}/>
                     <TouchableOpacity onPress={this._enviaMensagem.bind(this)}>
                         <Image source={require('../assets/enviar_mensagem.png')}/>
                     </TouchableOpacity>
