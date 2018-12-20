@@ -15,7 +15,7 @@ class Conversas extends React.Component{
          <TouchableOpacity onPress={()=>{
              Actions.conversa({title:conversas.contatoNome,contatoNome:conversas.contatoNome, contatoEmail:conversas.contatoEmail});
          }}>
-             <View style={{flex:1,flexDirection:'row', padding:10, borderBottomWidth:1, borderColor:'#CCC'}}>
+             <View style={{flex:1,flexDirection:'row', padding:10, borderBottomWidth:1, borderColor:'#CCC',}}>
                 <View >
                     <Image source={require('../assets/generic-user.png')} style={{width:50, height:50}}/>
                 </View>
@@ -24,7 +24,7 @@ class Conversas extends React.Component{
                     <Text style={{fontSize:20, fontWeight:'500'}}>{conversas.contatoNome}</Text>
                     <View style={{flexDirection:'row', paddingLeft:3}}>
                         {conversas.tipo=="e"?<Image source={require('../assets/check.png')} style={{width:20, height:20, paddingTop:25}}/>:null}
-                        <Text style={{fontSize:15}}>{conversas.ultimaMensagem}</Text>
+                        <Text style={{fontSize:15}}>{conversas.ultimaMensagem.length>30?conversas.ultimaMensagem.substring(0,30)+' ...':conversas.ultimaMensagem}</Text>
                     </View>
                 </View>
              </View>

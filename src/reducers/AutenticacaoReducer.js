@@ -21,13 +21,13 @@ export default (state = INITIAL_STATE, action) =>{
 
     switch(action.type){
         case MODIFICA_NOME:
-            return{...state,nome:action.payload}
+            return{...state,nome:action.payload, erroLogin:"",  erroCadastro:''}
 
         case MODIFICA_EMAIL:
-            return {...state, email:action.payload}
+            return {...state, email:action.payload, erroLogin:"",  erroCadastro:''}
         
         case MODIFICA_SENHA:
-            return {...state, senha:action.payload}
+            return {...state, senha:action.payload, erroLogin:"", erroCadastro:''}
 
         case CADASTRO_USUARIO_ERRO:
             return {...state, erroCadastro:action.payload, loading:false}

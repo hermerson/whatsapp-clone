@@ -9,7 +9,12 @@ class AdicionarContato extends React.Component{
         if(this.props.loading){
             return(<ActivityIndicator size="large"/>)
         }
-        return (<Button title="Adicionar" color="#115E54" onPress={()=>this.props.adicionaContato(this.props.add_contato_email)}></Button>)
+        return (<Button title="Adicionar" color="#115E54" onPress={()=>{
+                    if(!this.props.add_contato_email==""){
+                        this.props.adicionaContato(this.props.add_contato_email);
+                    }
+                    
+                }}></Button>)
     }
 
     render(){

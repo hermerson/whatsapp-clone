@@ -33,12 +33,17 @@ export const adicionaContato = (email) =>{
                     console.log(dadosUsuario);
                     const {currentUser} = firebase.auth();
                     let emailUserB64 = b64.encode(currentUser.email);
-                    firebase.database().ref(`/usuario_contatos/${emailUserB64}`).push({email, nome:dadosUsuario.nome}).then(res=>{
-                        Toast.show('Cadastro Realizado com sucesso', Toast.LONG);
-                        dispatch({type:ADICIONA_CONTATO_SUCESSO})
-                    }).catch(erro=>{
-                        dispatch({type:ADICIONA_CONTATO_ERRO, payload:erro.message});
-                    });
+                    if(emailB64==emailUserB64){
+                        dispatch({type:ADICIONA_CONTATO_ERRO, payload:"Você nao pode adicionar sua propria conta!"});
+                    }else{
+                        firebase.database().ref(`/usuario_contatos/${emailUserB64}`).push({email, nome:dadosUsuario.nome}).then(res=>{
+                            Toast.show('Cadastro Realizado com sucesso', Toast.LONG);
+                            dispatch({type:ADICIONA_CONTATO_SUCESSO})
+                        }).catch(erro=>{
+                            dispatch({type:ADICIONA_CONTATO_ERRO, payload:erro.message});
+                        });
+                    }
+                    
                 }else{
                     dispatch({type:ADICIONA_CONTATO_ERRO, payload:"Usuario nao existe"});
                 }
@@ -76,15 +81,17 @@ export const enviaMensagem = (mensagem, contatoNome, contatoEmail)=>{
     
     return(dispatch)=>{
         const data = new Date();
+        const hora = data.getHours()<10?'0'+data.getHours():data.getHours();
+        const minuto = data.getMinutes()<10?'0'+data.getMinutes():data.getMinutes();
         const usuarioEmailB64 = b64.encode(currentUser.email);
         const contatoEmailB64 = b64.encode(contatoEmail);
         dispatch({type:ENVIA_MENSAGEM,})
         firebase.database().ref(`/mensagens/${usuarioEmailB64}/${contatoEmailB64}`)
-        .push({mensagem, tipo:"e", timestamp:data.getTime()})
+        .push({mensagem, tipo:"e", hora:hora+':'+minuto})
         .then((res)=>{
             console.log(res);
             firebase.database().ref(`/mensagens/${contatoEmailB64}/${usuarioEmailB64}`)
-            .push({mensagem, tipo:"r", timestamp:data.getTime()})
+            .push({mensagem, tipo:"r", hora:hora+':'+minuto})
             .then(()=>{
                 
             })
@@ -118,6 +125,7 @@ export const conversaUsuarioFetch = (contatoEmail) => {
         const contatoEmailB64 = b64.encode(contatoEmail);
 
         firebase.database().ref(`/mensagens/${usuarioEmailB64}/${contatoEmailB64}`).on('value', snapshot=>{
+            if(snapshot.val()){
             var ordered = {};
             Object.keys(snapshot.val()).sort().forEach((key)=>{
                 ordered[key]=snapshot.val()[key];
@@ -125,6 +133,7 @@ export const conversaUsuarioFetch = (contatoEmail) => {
             const mensagens = ordered;
             
             dispatch({type:LISTA_CONVERSA_USUARIO, payload:mensagens});
+        }
         })
     }
 }
