@@ -3,7 +3,7 @@ import {View, TextInput, TouchableOpacity, Image, ListView, Text, ImageBackgroun
 import {connect} from 'react-redux';
 import {modificaMensagem, enviaMensagem, conversaUsuarioFetch} from '../actions/AppActions'
 import _ from 'lodash';
-import axios from 'axios';
+
 
 
 class Conversa extends React.Component{

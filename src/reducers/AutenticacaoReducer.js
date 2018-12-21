@@ -14,7 +14,6 @@ const INITIAL_STATE={
     erroCadastro:'', 
     erroLogin:'',
     loading:false, 
-    autenticado:false
 }
 
 export default (state = INITIAL_STATE, action) =>{
@@ -39,7 +38,7 @@ export default (state = INITIAL_STATE, action) =>{
             return {...state, erroLogin:action.payload, loading:false}
         
         case LOGIN_USUARIO_SUCESSO:
-            return {...state, ...INITIAL_STATE, autenticado:true}
+            return {...state, ...INITIAL_STATE}
         case LOADING:
             return{...state, loading:true}
 

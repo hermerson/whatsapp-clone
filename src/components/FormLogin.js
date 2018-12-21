@@ -33,7 +33,7 @@ class formLogin  extends Component{
                         <TextInput value={this.props.email} 
                             onChangeText={texto =>{this.props.modificaEmail(texto)}} 
                             placeholder="E-mail" placeholderTextColor='#FFF' 
-                            style={styles.input}/>
+                            style={styles.input} />
 
                         <TextInput value={this.props.senha}  
                             onChangeText={texto =>{this.props.modificaSenha(texto)}} 
@@ -62,8 +62,7 @@ class formLogin  extends Component{
 
 
 const styles = StyleSheet.create({
-    input: {
-        
+    input: { 
         height: 40,
         margin:4,
         borderColor: '#FFF',

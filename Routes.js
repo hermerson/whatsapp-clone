@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   });
   
 const mapStateToProps=(state)=>({
-    autenticado:state.AutenticacaoReducer.autenticado,
+    autenticado:state.AppReducer.autenticado,
 });
 
 export default connect(mapStateToProps, null)(Routes);

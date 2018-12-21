@@ -1,10 +1,11 @@
-import {MODIFICA_ADD_CONTATO_EMAIL, ADICIONA_CONTATO_SUCESSO, ADICIONA_CONTATO_ERRO, LOADING_ADD_CONTATO, MODIFICA_MENSAGEM, ENVIA_MENSAGEM} from '../actions/types';
+import {MODIFICA_ADD_CONTATO_EMAIL, ADICIONA_CONTATO_SUCESSO, ADICIONA_CONTATO_ERRO, LOADING_ADD_CONTATO, MODIFICA_MENSAGEM, ENVIA_MENSAGEM, LOGIN_USUARIO_SUCESSO} from '../actions/types';
 
 const INITIAL_STATE={
     add_contato_email:'',
     erro_adicionar_contato:'',
     loading:false,
     mensagem:'',
+    autenticado:false
 }
 
 export default (state = INITIAL_STATE, action) =>{
@@ -27,7 +28,8 @@ export default (state = INITIAL_STATE, action) =>{
         
         case ENVIA_MENSAGEM:
             return{...state, mensagem:""}
-
+        case LOGIN_USUARIO_SUCESSO:
+            return {...state, autenticado:true}
 
         default:
             return state;
